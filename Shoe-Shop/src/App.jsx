@@ -1,32 +1,42 @@
 import React from 'react'
-import Navbar from './assets/components/Navbar'
+import Hero from './sections/Hero'
+import BestSellers from './sections/BestSellers'
+import SuperQuality from './sections/SuperQuality'
+import Services from './sections/Services'
+import SpecialOffers from './sections/SpecialOffers'
+import CustomerReviews from './sections/CustomerReviews'
+import Subscribe from './sections/Subscribe'
+import Footer from './sections/Footer'
+import Navbar from './sections/Navbar'
 
 const App = () =>(
     <main className='relative'>
-      Navbar
-      <section className='padding'>
-        Hero
+
+      <Navbar />
+      <section className=''>
+        <Hero />
       </section>
+      <section className=''>
+        <BestSellers />
+       </section>
       <section className='padding'>
-        Popular Products
-      </section>
-      <section className='padding'>
-        SuperQuality
+        <SuperQuality />
       </section>
       <section className='padding-x py-10'>
-        Services
+        <Services />
       </section>
       <section className='padding'>
-        SpecialOffers
+        <SpecialOffers />
       </section>
       <section className='padding bg-pale-blue'>
-          CustomerReviews
+         <CustomerReviews />
         </section>
       <section className='padding'>
-          Subsctribe
+          <Subscribe />
         </section>
         <section className='padding'>
-        Footer
+          <Footer />
+        
       </section>      
     </main>
   )
