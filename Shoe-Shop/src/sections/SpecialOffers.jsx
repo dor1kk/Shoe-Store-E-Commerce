@@ -23,11 +23,11 @@ const SpecialOffers = () => {
           </div>
 
           <div>
-            <div className='flex flex-row justify-center mt-24 gap-4 '>
+            <div className='flex flex-row justify-center mt-24 gap-4 max-lg:flex-col '>
                 <img src='https://img.freepik.com/free-photo/view-3d-laptop-device-with-screen-keyboard_23-2150714071.jpg?size=338&ext=jpg&ga=GA1.1.735520172.1712275200&semt=ais' className='rounded-3xl shadow-xl'  width={400} height={502}></img>
                 <img src='https://img.freepik.com/premium-photo/red-headphones-laying-red-background_115919-36326.jpg' className='rounded-3xl shadow-xl' width={400} height={502}></img>
             </div>
-            <div className='absolute bg-white border border-2 border-coral-red rounded-full justify-center b-white items-center text-center mt-[-100px] ml-[450px] w-48 h-48 text-coral-red'><img src='https://png.pngtree.com/png-clipart/20230415/original/pngtree-best-price-icon-design-png-image_9057741.png'></img></div>
+            <div className='absolute bg-white border border-2 border-coral-red rounded-full justify-center b-white items-center text-center mt-[-100px] ml-[450px] w-48 h-48 text-coral-red max-lg:hidden'><img src='https://png.pngtree.com/png-clipart/20230415/original/pngtree-best-price-icon-design-png-image_9057741.png'></img></div>
 
           </div>
     </div>

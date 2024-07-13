@@ -11,15 +11,15 @@ export const navLinks = [
 export const items = [
     {
         thumbnail: "https://pnghq.com/wp-content/uploads/wireless-headphones-front-view.-white-png-icon-on-a-transparent-background.-3d-rendering.-14033452-png.png",
-        bigShoe: 'https://pnghq.com/wp-content/uploads/wireless-headphones-front-view.-white-png-icon-on-a-transparent-background.-3d-rendering.-14033452-png.png',
+        bigItem: 'https://pnghq.com/wp-content/uploads/wireless-headphones-front-view.-white-png-icon-on-a-transparent-background.-3d-rendering.-14033452-png.png',
     },
     {
         thumbnail: 'https://pngimg.com/d/macbook_PNG101741.png',
-        bigShoe: 'https://pngimg.com/d/macbook_PNG101741.png',
+        bigItem: 'https://pngimg.com/d/macbook_PNG101741.png',
     },
     {
         thumbnail: 'https://static.vecteezy.com/system/resources/previews/027/144/874/original/futuristic-bluetooth-portable-speaker-isolated-on-transparent-background-png.png',
-        bigShoe: 'https://static.vecteezy.com/system/resources/previews/027/144/874/original/futuristic-bluetooth-portable-speaker-isolated-on-transparent-background-png.png',
+        bigItem: 'https://static.vecteezy.com/system/resources/previews/027/144/874/original/futuristic-bluetooth-portable-speaker-isolated-on-transparent-background-png.png',
     },
 ];
 
@@ -32,23 +32,23 @@ export const statistics = [
 export const products = [
     {
         imgURL: 'https://img.freepik.com/premium-photo/computer-mouse-with-blue-light_1059945-1482.jpg',
-        name: "Nike Air Jordan-01",
-        price: "$200.20",
+        name: "Bluetooth Mouse",
+        price: "$20.20",
     },
     {
         imgURL: 'https://img.freepik.com/premium-photo/pair-headphones-orangepinkish-background_927585-99.jpg',
-        name: "Nike Air Jordan-10",
-        price: "$210.20",
+        name: "MySound Headphones",
+        price: "$50.20",
     },
     {
         imgURL: 'https://img.freepik.com/premium-photo/phone-with-back-facing-camera-back-it-is-red-blue_662214-56503.jpg',
-        name: "Nike Air Jordan-100",
-        price: "$220.20",
+        name: "Iphone 15 Pro Max",
+        price: "$1220.20",
     },
     {
         imgURL: 'https://img.freepik.com/premium-photo/laptop-computer-with-colorful-animation-background-green-screen-style-dark-indigo-brown_334364-5826.jpg',
-        name: "Nike Air Jordan-001",
-        price: "$230.20",
+        name: "Apple Pro Macbook",
+        price: "$2230.20",
     },
 ];
 
@@ -72,14 +72,14 @@ export const services = [
 
 export const reviews = [
     {
-        imgURL: customer1,
-        customerName: 'Morich Brown',
+        imgURL: 'https://img.freepik.com/photos-gratuite/portrait-jolie-femme-souriante-au-bureau_23-2148187253.jpg',
+        customerName: 'Jane Smith',
         rating: 4.5,
         feedback: "The attention to detail and the quality of the product exceeded my expectations. Highly recommended!"
     },
     {
-        imgURL: customer2,
-        customerName: 'Lota Mongeskar',
+        imgURL: 'https://img.freepik.com/free-photo/portrait-young-bearded-man-looking-camera_23-2148187159.jpg',
+        customerName: 'John Doe',
         rating: 4.5,
         feedback: "The product not only met but exceeded my expectations. I'll definitely be a returning customer!"
     }

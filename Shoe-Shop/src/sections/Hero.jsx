@@ -5,12 +5,12 @@ import { bigShoe1 } from "../assets/images";
 import { arrowRight } from "../assets/icons";
 
 const Hero = () => {
-  const [bigShoeImg, setBigShoeImg] = useState(
+  const [bigItemImg, setBigItemImg] = useState(
     'https://static.vecteezy.com/system/resources/previews/014/033/452/original/wireless-headphones-front-view-white-icon-on-a-transparent-background-3d-rendering-png.png'
   );
 
   return (
-    <section id="home" className="flex flex-col xl:flex-row justify-center min-h-screen max-container mx-auto gap-10 p-4 xl:p-0">
+    <section id="home" className="flex flex-col  justify-center  gap-10 p-4 xl:p-0">
       <div className="flex flex-row items-center xl:items-start">
         <div className="relative p xl:w-2/5 flex flex-col justify-center xl:ml-[-60px] w-full pt-16 px-16 xl:px-0">
           <p className="text-xl mt-16 font-medium text-red-400 font-montserrat mb-4 xl:mb-16 xl:mt-0">
@@ -54,7 +54,7 @@ const Hero = () => {
       </div>
       <div className="relative flex-1 flex justify-center items-center xl:min-h-screen max-xl:py-40 bg-primary bg-hero bg-cover bg-center">
         <img
-          src={bigShoeImg}
+          src={bigItemImg}
           alt="tech collection"
           width={610}
           height={502}
@@ -67,8 +67,8 @@ const Hero = () => {
               <ShoeCard
                 index={index}
                 imgURL={image}
-                changeBigShoeImage={(shoe) => setBigShoeImg(shoe)}
-                bigShoeImg={bigShoeImg}
+                changeBigItemImage={(item) => setBigItemImg(item)}
+                bigItemImg={bigItemImg}
               />
             </div>
           ))}

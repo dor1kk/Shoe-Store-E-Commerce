@@ -28,13 +28,13 @@ const App = () =>(
       <section className='padding'>
         <SpecialOffers />
       </section>
-      <section className='padding bg-pale-blue'>
+      <section className='padding mt-10 bg-pale-blue'>
          <CustomerReviews />
         </section>
       <section className='padding'>
           <Subscribe />
         </section>
-        <section className='padding'>
+        <section className='padding bg-black'>
           <Footer />
         
       </section>      

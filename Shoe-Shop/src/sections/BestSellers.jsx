@@ -20,7 +20,7 @@ const BestSellers = () => {
             />
             <h2 className='text-2xl font-bold mt-2'>{product.name}</h2>
             <p className='text-gray-500 mt-1'>{product.description}</p>
-            <p className='text-red-400 mt-2 font-bold'>${product.price}</p>
+            <p className='text-red-400 mt-2 font-bold'>{product.price}</p>
           </div>
         ))}
       </div>
