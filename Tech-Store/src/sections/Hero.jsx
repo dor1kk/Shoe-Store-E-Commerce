@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+ *import React, { useState } from "react";
 import { items, statistics } from "../constans/index";
 import ShoeCard from "../components/ShoeCard";
 import { bigShoe1 } from "../assets/images";
