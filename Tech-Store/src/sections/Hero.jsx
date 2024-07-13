@@ -14,11 +14,11 @@ const Hero = () => {
       <div className="flex flex-row items-center xl:items-start">
         <div className="relative p xl:w-2/5 flex flex-col justify-center xl:ml-[-60px] w-full pt-16 px-16 xl:px-0">
           <p className="text-xl mt-16 font-medium text-red-400 font-montserrat mb-4 xl:mb-16 xl:mt-0">
-            Our Summer Collection
+            Our Tech Collection
           </p>
           <h1 className="mt-4 font-palanquin text-4xl sm:text-6xl xl:text-8xl leading-tight sm:leading-snug xl:leading-[82px] font-bold">
-            The New Arrival<br />
-            <span className="text-coral-red">Tech</span> Store Items
+            The New Arrivals<br />
+           at <span className="text-coral-red">Tech</span> Store 
           </h1>
           <p className="text-gray-400 w-full sm:w-3/5 mt-4">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate

@@ -1,5 +1,4 @@
 import { facebook, instagram, shieldTick, support, truckFast, twitter } from "../assets/icons";
-import { bigShoe1, bigShoe2, bigShoe3, customer1, customer2, shoe4, shoe5, shoe6, shoe7, thumbnailShoe1, thumbnailShoe2, thumbnailShoe3 } from "../assets/images";
 
 export const navLinks = [
     { href: "#home", label: "Home" },
@@ -90,12 +89,12 @@ export const footerLinks = [
     {
         title: "Products",
         links: [
-            { name: "Air Force 1", link: "/" },
-            { name: "Air Max 1", link: "/" },
-            { name: "Air Jordan 1", link: "/" },
-            { name: "Air Force 2", link: "/" },
-            { name: "Nike Waffle Racer", link: "/" },
-            { name: "Nike Cortez", link: "/" },
+            { name: "Bluetooth Mouse", link: "/" },
+            { name: "Air Pods", link: "/" },
+            { name: "Gaming Keyboard", link: "/" },
+            { name: "Iphone 15", link: "/" },
+            { name: "Macbook Air Pro", link: "/" },
+            { name: "Xiaomi", link: "/" },
         ],
     },
     {
@@ -111,8 +110,8 @@ export const footerLinks = [
     {
         title: "Get in touch",
         links: [
-            { name: "customer@nike.com", link: "mailto:customer@nike.com" },
-            { name: "+92554862354", link: "tel:+92554862354" },
+            { name: "customer@byte.com", link: "mailto:customer@nike.com" },
+            { name: "+9254363246777", link: "tel:+9254363246777" },
         ],
     },
 ];

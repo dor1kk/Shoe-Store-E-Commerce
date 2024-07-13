@@ -3,7 +3,7 @@ import { services } from '../constans'
 
 const Services = () => {
   return (
-    <div className='flex flex-row justify-between gap-12 items-center max-lg:flex-col'>
+    <div id='about-us' className='flex flex-row justify-between gap-12 items-center max-lg:flex-col'>
         {services.map((service)=>{
             return(
                 
