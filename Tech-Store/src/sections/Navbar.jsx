@@ -65,7 +65,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="padding-x py-8 z-10 w-full">
+    <header className=" padding-x py-8 z-10 w-full">
       <nav className="flex justify-between items-center max-center">
         <a href="/">
           <img src={logo} className="w-32" alt="Logo" />
@@ -128,7 +128,7 @@ const Navbar = () => {
 
        <div>
           <FaBars
-            className="hidden max-lg:block cursor-pointer"
+            className="hidden text-coral-red max-lg:block cursor-pointer"
             size={25}
             onClick={toggleSidebar}
           />

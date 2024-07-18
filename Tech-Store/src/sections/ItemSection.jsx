@@ -18,7 +18,7 @@ const ItemsSection = () => {
         className="object-contain relative z-10"
       />
 
-      <div className="flex sm:gap-6 gap-4 absolute -bottom-[5%] sm:left-[10%] max-sm:px-6">
+      <div className="flex sm:gap-6 gap-4 absolute  -bottom-[5%] sm:left-[10%] max-sm:px-6">
         {items.map((image, index) => (
           <div key={index}>
             <ItemCard

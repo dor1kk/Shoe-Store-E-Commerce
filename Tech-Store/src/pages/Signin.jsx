@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import logo from '../assets/byte.png'
 
 const Signin = () => {
   const [formData, setFormData] = useState({
@@ -26,11 +27,16 @@ const Signin = () => {
     .then(res => {
       console.log("Response data:", res.data); 
       if (res.data.Login) {
+        if(res.data.role==='admin'){
         console.log("Login State", res.data.Login);
-        window.location.href = '/';
-      } else {
-        setErr('Invalid username or password');
-      }
+        window.location.href = '/AdminDashboard';
+        }
+        else{
+          window.location.href='/'
+        }
+      } 
+        
+      
     })
     .catch(err => {
       console.error(err);
@@ -42,13 +48,13 @@ const Signin = () => {
     <div className="min-h-screen max-lg:flex-col flex bg-white">
       <div className="md:block md:w-1/2 bg-coral-red p-8 text-center">
         <img src='https://png.pngtree.com/png-vector/20231015/ourmid/pngtree-scan-delivery-process-png-image_10160781.png' alt="Welcome illustration" className="mx-auto w-2/3 mb-4" />
-        <p className="text-white">Connect with every application.</p>
-        <p className="text-white">Everything you need in an easily customizable dashboard.</p>
+        <p className="text-white">Join us to see the latest technology products out there.</p>
       </div>
       <div className="m-auto w-3/4 p-16 md:w-1/2">
         <div className="text-center mb-4">
-          <h2 className="mb-3 text-2xl">Welcome!</h2>
-        </div>
+        <div className="text-center flex flex-col justify-center items-center mb-8">
+          <img src={logo} className='w-1/4 max-lg:w-3/4 '></img>
+        </div>        </div>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <input

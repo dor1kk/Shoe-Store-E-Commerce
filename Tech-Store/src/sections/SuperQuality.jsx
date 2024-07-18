@@ -19,8 +19,8 @@ const SuperQuality = () => {
       </div>
       <div className='w-full xl:w-1/2 flex justify-center items-center mt-6 xl:mt-0'>
         <img 
-          src="https://img.freepik.com/free-photo/programming-background-concept_23-2150170143.jpg" 
-          className='border shadow-xl rounded-xl object-cover max-w-full h-auto'
+          src="https://img.freepik.com/premium-vector/people-with-laptop-computer-icon-comic-style-pc-user-cartoon-vector-illustration-white-isolated-background-office-manager-splash-effect-business-concept_157943-17769.jpg" 
+          className='rounded-xl object-cover max-w-full h-auto'
           alt="Super Quality Products"
         />
       </div>

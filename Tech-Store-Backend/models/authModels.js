@@ -2,11 +2,11 @@
 const pool = require('../config/db');
 
 const signUpUserModel = (user, callback) => {
-  const { username, email, password, first_name, last_name, image } = user;
-  
+  const { username, email, password, first_name, image, role } = user;
+
   pool.query(
-    'INSERT INTO users (username, email, password, first_name, last_name, image_url) VALUES (?, ?, ?, ?, ?, ?)',
-    [username, email, password, first_name, last_name, image],
+    'INSERT INTO users (username, email, password, first_name, image_url, role) VALUES (?, ?, ?, ?, ?, ?)',
+    [username, email, password, first_name, image, role],
     (error, result) => {
       if (error) {
         console.error('Error inserting user:', error);
@@ -16,6 +16,7 @@ const signUpUserModel = (user, callback) => {
     }
   );
 };
+
 
 const signInUserModel = (username, password, callback) => {
   pool.query(

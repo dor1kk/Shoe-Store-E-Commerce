@@ -1,4 +1,3 @@
-
 const pool = require('../config/db');
 
 const createOrder = (orderData, callback) => {
@@ -25,7 +24,13 @@ const getOrdersByUserId = (user_id, callback) => {
     });
 };
 
+const cancelOrder = (orderId, status, callback) => {
+    const sql = 'UPDATE orders SET order_status = ? WHERE order_item_id = ?';
+    pool.query(sql, [status, orderId], callback);
+};
+
 module.exports = {
     createOrder,
-    getOrdersByUserId
+    getOrdersByUserId,
+    cancelOrder
 };

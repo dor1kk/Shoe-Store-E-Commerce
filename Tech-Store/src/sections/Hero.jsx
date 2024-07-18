@@ -27,18 +27,18 @@ const Hero = () => {
           />
         </button>
       </div>
-      <div className="relative flex flex-col max-lg:hidden max-lg:ml-8 mr-12 mt-16 mb-4">
+      <div className="relative flex flex-col max-lg:ml-8 mr-12 mt-16 mb-4">
         <img
           src=" https://img.freepik.com/premium-vector/computer-technology-pc-screen-desktop-isolated-internet-monitor-laptop-display-digital-bu_1013341-54264.jpg"
           alt="pink headphones"
-          className="object-cover relative mt-[-60px]  w-[700px] xl:w-[400px] rounded-full "
+          className="object-cover  mt-[-60px] max-lg:hidden   w-[700px] xl:w-[400px] rounded-full "
 
         />
        
          <img
           src="https://img.freepik.com/premium-vector/red-pair-headphones-with-red-band_410516-83019.jpg"
           alt="pink headphones"
-          className="object-cover w-[700px] mt-[-180px] ml-[-200px] xl:w-[400px] border border-8 border-white z-10 rounded-full "
+          className="object-cover w-[700px] mt-[-180px] max-lg:ml-2 max-lg:mt-[5px] ml-[-200px] xl:w-[400px] border border-8 border-white z-10 rounded-full "
 
         />
       </div>

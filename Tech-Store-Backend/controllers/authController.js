@@ -2,14 +2,14 @@ const { signUpUserModel, signInUserModel } = require('../models/authModels');
 const { signUpValidation } = require('../utils/AuthValidation'); 
 
 const signUpUser = (req, res) => {
-  const { username, email, password, first_name, last_name, image } = req.body;
+  const { username, email, password, first_name, image, role } = req.body;
 
   const { error } = signUpValidation.validate(req.body);
   if (error) {
     return res.status(400).json({ error: error.details[0].message });
   }
 
-  signUpUserModel({ username, email, password, first_name, last_name, image }, (err, result) => {
+  signUpUserModel({ username, email, password, first_name, image, role }, (err, result) => {
     if (err) {
       console.error('Error signing up user:', err);
       return res.status(500).json({ message: 'Failed to register user' });
@@ -17,16 +17,16 @@ const signUpUser = (req, res) => {
 
     req.session.username = username;
     req.session.userid = result.insertId;
-    req.session.role = 'customer';
+    req.session.role = role;
 
-    return res.status(201).json({ id: result.insertId, username, email });
+    return res.status(201).json({ redirectTo: '/' });
   });
 };
 
 const signInUser = (req, res) => {
   const { username, password } = req.body;
 
-  const { error } = require('../utils/AuthValidation').signInValidation.validate(req.body); // Use .validate() directly
+  const { error } = require('../utils/AuthValidation').signInValidation.validate(req.body);
   if (error) {
     return res.status(400).json({ error: error.details[0].message });
   }
@@ -46,7 +46,7 @@ const signInUser = (req, res) => {
 
       console.log('Session after signInUser:', req.session);
 
-      return res.json({ Login: true });
+      return res.json({ Login: true , role:req.session.role});
     } else {
       return res.json({ Login: false });
     }

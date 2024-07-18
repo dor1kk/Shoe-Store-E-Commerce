@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Table, Tag, Typography, Spin } from 'antd';
+import { Table, Tag, Typography, Spin, Button, message } from 'antd';
 import Navbar from '../sections/Navbar';
-import '../styles/MyOrders.css'; // Import your custom CSS for additional styling
+import '../styles/MyOrders.css';
 
 const { Title } = Typography;
 
@@ -25,12 +25,28 @@ const MyOrders = () => {
     fetchOrders();
   }, []);
 
+  const formatDate = (dateString) => {
+    const options = { day: 'numeric', month: 'short', year: 'numeric' };
+    return new Date(dateString).toLocaleDateString('en-GB', options);
+  };
+
+  const handleCancelOrder = async (orderId) => {
+    try {
+      await axios.post(`http://localhost:5006/api/cancel-order/${orderId}`);
+      message.success('Order cancelled successfully');
+      setOrders(orders.map(order => order.order_item_id === orderId ? { ...order, order_status: 'cancelled' } : order));
+    } catch (error) {
+      console.error('Error cancelling order:', error);
+      message.error('Failed to cancel the order');
+    }
+  };
+
   const columns = [
     {
-        title: 'Product',
-        dataIndex: 'name',
-        key: 'name',
-      },
+      title: 'Product',
+      dataIndex: 'name',
+      key: 'name',
+    },
     {
       title: 'Quantity',
       dataIndex: 'quantity',
@@ -55,39 +71,51 @@ const MyOrders = () => {
       responsive: ['md'],
     },
     {
-        title: 'Order Status',
-        dataIndex: 'order_status',
-        key: 'order_status',
-        render: (status) => {
-          let color = status === 'pending' ? 'volcano' : 'green';
-          return <Tag color={color}>{status.toUpperCase()}</Tag>;
-        },
+      title: 'Order Status',
+      dataIndex: 'order_status',
+      key: 'order_status',
+      render: (status) => {
+        let color = status === 'pending' ? 'volcano' : 'green';
+        return <Tag color={color}>{status.toUpperCase()}</Tag>;
       },
+    },
     {
       title: 'Total Amount',
       dataIndex: 'total_amount',
       key: 'total_amount',
       render: (amount) => `$${amount.toFixed(2)}`,
     },
- 
     {
       title: 'Created At',
       dataIndex: 'created_at',
       key: 'created_at',
-      render: (date) => new Date(date).toLocaleString(),
+      render: (date) => formatDate(date),
     },
     {
       title: 'Updated At',
       dataIndex: 'updated_at',
       key: 'updated_at',
       responsive: ['md'],
-
-      render: (date) => new Date(date).toLocaleString(),
+      render: (date) => formatDate(date),
+    },
+    {
+      title: 'Action',
+      key: 'action',
+      render: (_, record) => (
+        <Button
+          type="primary"
+          danger
+          onClick={() => handleCancelOrder(record.order_item_id)}
+          disabled={record.order_status !== 'pending'}
+        >
+          Cancel Order
+        </Button>
+      ),
     },
   ];
 
   return (
-    <div className="my-orders-container">
+    <div className="">
       <Navbar />
       <div className="my-orders-content">
         {loading ? (
@@ -99,9 +127,10 @@ const MyOrders = () => {
             columns={columns}
             dataSource={orders}
             rowKey="order_item_id"
+            className='p-8'
             pagination={{ pageSize: 10 }}
             bordered
-            scroll={{ x: 'max-content' }} // Enable horizontal scroll for responsiveness
+            scroll={{ x: 'max-content' }} 
           />
         )}
       </div>

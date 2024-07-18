@@ -1,28 +1,44 @@
-import React from 'react'
-import Hero from '../sections/Hero'
-import BestSellers from '../sections/BestSellers'
-import SuperQuality from '../sections/SuperQuality'
-import Services from '../sections/Services'
-import SpecialOffers from '../sections/SpecialOffers'
-import CustomerReviews from '../sections/CustomerReviews'
-import Subscribe from '../sections/Subscribe'
-import Footer from '../sections/Footer'
-import Navbar from '../sections/Navbar'
-import ItemsSection from '../sections/ItemSection'
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import Hero from '../sections/Hero';
+import BestSellers from '../sections/BestSellers';
+import SuperQuality from '../sections/SuperQuality';
+import Services from '../sections/Services';
+import SpecialOffers from '../sections/SpecialOffers';
+import CustomerReviews from '../sections/CustomerReviews';
+import Subscribe from '../sections/Subscribe';
+import Footer from '../sections/Footer';
+import Navbar from '../sections/Navbar';
+import ItemsSection from '../sections/ItemSection';
+import IntroductionPopup from '../components/IntroductionPopUp'; 
 
-const Home = () =>(
+const Home = () => {
+  const location = useLocation();
+  const [showIntroduction, setShowIntroduction] = useState(false);
+
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    if (queryParams.get('newUser') === 'true') {
+      setShowIntroduction(true);
+    }
+  }, [location]);
+
+  const handleCloseIntroduction = () => {
+    setShowIntroduction(false);
+  };
+
+  return (
     <main className='relative'>
-
       <Navbar />
-      <section className=''>
+      <section>
         <Hero />
       </section>
-      <section className=''>
-        <ItemsSection/>
+      <section>
+        <ItemsSection />
       </section>
-      <section className=''>
+      <section>
         <BestSellers />
-       </section>
+      </section>
       <section className='padding'>
         <SuperQuality />
       </section>
@@ -33,17 +49,17 @@ const Home = () =>(
         <SpecialOffers />
       </section>
       <section className='padding mt-10 bg-pale-blue'>
-         <CustomerReviews />
-        </section>
+        <CustomerReviews />
+      </section>
       <section className='padding'>
-          <Subscribe />
-        </section>
-        <section className='padding bg-black'>
-          <Footer />
-        
-      </section>      
+        <Subscribe />
+      </section>
+      <section className='padding bg-black'>
+        <Footer />
+      </section>
+      {showIntroduction && <IntroductionPopup onClose={handleCloseIntroduction} />}
     </main>
-  )
+  );
+};
 
-
-export default Home
+export default Home;

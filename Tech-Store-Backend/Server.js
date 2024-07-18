@@ -16,7 +16,7 @@ const authRoutes = require('./Routes/AuthRoutes');
 dotenv.config();
 
 const app = express();
-const PORT = 5006;
+const PORT = process.env.PORT
 
 app.use(cors({
     origin: ["http://localhost:5173"],

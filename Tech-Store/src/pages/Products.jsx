@@ -127,7 +127,7 @@ const Products = () => {
             style={{ width: '100%', marginBottom: '1rem' }}
             className="shadow"
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {(searchTerm ? filteredProducts : products).map((product) => (
               <Link
                 key={product.product_id}

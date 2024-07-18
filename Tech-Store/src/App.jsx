@@ -7,6 +7,7 @@ import Products from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
 import MyOrders from './pages/MyOrders';
 import axios from 'axios';
+import Dashboard from './pages/Dashboard';
 
 const App = () =>{
   axios.defaults.withCredentials=true;
@@ -20,6 +21,7 @@ const App = () =>{
       <Route path='/products' element={<Products />} />
       <Route path='/product/:id' element={<ProductDetail />} />
       <Route path='/MyOrders' element={<MyOrders />}></Route>
+      <Route path='/AdminDashboard' element={<Dashboard />}></Route>
     </Routes>
   </div>
 );

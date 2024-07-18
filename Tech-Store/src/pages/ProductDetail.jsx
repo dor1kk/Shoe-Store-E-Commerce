@@ -121,13 +121,19 @@ const ProductDetail = () => {
           </div>
           <div className='flex flex-col lg:w-3/5 p-8'>
             <h1 className='text-3xl font-bold mb-4'>{product.name}</h1>
-            <div className='flex items-center mb-4'>
+            <div className='flex items-center justify-between mb-4'>
+              <div>
               <span className='text-2xl text-red-500 font-bold'>${product.price}</span>
               <span className='ml-4 text-sm line-through text-gray-500'>$74.95</span>
             </div>
+            <div>
+            <Rate value={4.5} allowHalf disabled className='text-coral-red' />
+            <span className='ml-2 text-gray-600 '>({product.reviews?.length} Reviews)</span>
+
+            </div>
+            </div>
             <div className='flex items-center mb-4'>
-              <Rate value={4.5} allowHalf disabled />
-              <span className='ml-2 text-gray-600'>({product.reviews?.length} Reviews)</span>
+           
             </div>
             <p className='mb-4'>{product.description}</p>
             <div className='mb-4'>

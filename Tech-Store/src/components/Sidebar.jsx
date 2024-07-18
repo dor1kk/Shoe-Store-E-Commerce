@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../assets/byte.png'; // Ensure this path is correct
+import logo from '../assets/byte.png'; 
 
 const Sidebar = ({ auth, name, image, activeLink, handleNavClick, handleLogout, toggleDropdown, dropdownOpen }) => {
   return (
     <aside className="h-full w-64 bg-white shadow-lg p-4 fixed">
-      <div className="flex flex-col items-center">
+      <div className="p-4 flex flex-col items-center">
         <a href="/">
           <img src={logo} className="w-32 mb-8" alt="Logo" />
         </a>
