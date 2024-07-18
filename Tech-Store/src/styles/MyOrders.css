@@ -1,0 +1,19 @@
+.my-orders-container {
+    width: 100%;
+    padding: 16px;
+  }
+  
+  .my-orders-content {
+    padding: 16px;
+  }
+  
+  @media (max-width: 768px) {
+    .my-orders-container {
+      padding: 8px;
+    }
+  
+    .my-orders-content {
+      padding: 8px;
+    }
+  }
+  
