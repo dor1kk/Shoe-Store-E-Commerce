@@ -13,7 +13,7 @@ const MyOrders = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get('http://localhost:5006/api/auth/my-orders');
+        const response = await axios.get('http://localhost:5006/api/my-orders');
         setOrders(response.data.results);
         setLoading(false);
       } catch (error) {

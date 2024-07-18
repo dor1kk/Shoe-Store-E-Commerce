@@ -8,11 +8,11 @@ const Hero = () => {
         <p className="text-xl font-medium text-red-400 font-montserrat mb-4 xl:mb-8 xl:mt-0">
           Our Tech Collection
         </p>
-        <h1 className="font-palanquin text-6xl sm:text-6xl xl:text-8xl leading-tight sm:leading-snug xl:leading-[82px] font-bold">
+        <h1 className="font-palanquin text-6xl xl:text-4xl sm:text-6xl xl:text-8xl leading-tight sm:leading-snug xl:leading-[82px] font-bold">
           The New Arrivals<br />
           at <span className="text-coral-red">Tech</span> Store
         </h1>
-        <p className="text-gray-400 mt-2 w-2/3 max-lg:w-full">
+        <p className="text-gray-400 mt-2 w-2/3  max-lg:w-full">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate
           soluta rerum accusantium quo, ab dolorum quam excepturi quibusdam odit
           qui maiores adipisci, ducimus hic ex vitae eaque eos. Accusamus,
@@ -27,11 +27,18 @@ const Hero = () => {
           />
         </button>
       </div>
-      <div className="relative max-lg:ml-8 mr-12 mt-12 mb-4">
+      <div className="relative flex flex-col max-lg:hidden max-lg:ml-8 mr-12 mt-16 mb-4">
         <img
-          src="https://img.freepik.com/premium-photo/close-up-pair-headphones-red-background-generative-ai_1028863-950.jpg"
+          src=" https://img.freepik.com/premium-vector/computer-technology-pc-screen-desktop-isolated-internet-monitor-laptop-display-digital-bu_1013341-54264.jpg"
           alt="pink headphones"
-          className="object-cover w-[1000px] rounded-3xl "
+          className="object-cover relative mt-[-60px]  w-[700px] xl:w-[400px] rounded-full "
+
+        />
+       
+         <img
+          src="https://img.freepik.com/premium-vector/red-pair-headphones-with-red-band_410516-83019.jpg"
+          alt="pink headphones"
+          className="object-cover w-[700px] mt-[-180px] ml-[-200px] xl:w-[400px] border border-8 border-white z-10 rounded-full "
 
         />
       </div>

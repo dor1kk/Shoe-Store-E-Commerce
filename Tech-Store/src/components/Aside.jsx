@@ -5,10 +5,10 @@ const { Option } = Select;
 
 const Aside = ({ categories, sort, handleApplyFilters, handleSortChange, handleFilterChange }) => {
   return (
-    <div>
-      <div className="mb-4">
+    <div className='p-8 '>
+      <div className="mb-4 ">
         <h3 className="font-medium">Category</h3>
-        <Checkbox.Group className="flex flex-col p-4 gap-2" style={{ width: '100%' }}>
+        <Checkbox.Group className="flex flex-col p-2 gap-2 w" >
           {categories.map((category) => (
             <Checkbox
               key={category.category_id}
@@ -20,7 +20,7 @@ const Aside = ({ categories, sort, handleApplyFilters, handleSortChange, handleF
           ))}
         </Checkbox.Group>
       </div>
-      <div className="mb-4">
+      <div className="mb-4 ">
         <h3 className="font-medium">Sort By</h3>
         <Select value={sort} onChange={handleSortChange} style={{ width: '100%' }}>
           <Option value="default">Default</Option>
@@ -30,7 +30,7 @@ const Aside = ({ categories, sort, handleApplyFilters, handleSortChange, handleF
       </div>
       <Button
         type="primary"
-        className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
+        className="bg-coral-red text-white py-2 px-4 rounded-md hover:bg-blue-600"
         onClick={handleApplyFilters}
       >
         Apply

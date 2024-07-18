@@ -1,53 +1,89 @@
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const userModel = require('../models/UserModel');
+const { signUpUserModel, signInUserModel } = require('../models/authModels');
+const { signUpValidation } = require('../utils/AuthValidation'); 
 
-const register = (req, res) => {
-  const { username, password, email, first_name, last_name, role } = req.body;
+const signUpUser = (req, res) => {
+  const { username, email, password, first_name, last_name, image } = req.body;
 
-  if (!username || !password || !email) {
-    return res.status(400).json({ message: 'Please provide username, password, and email' });
+  const { error } = signUpValidation.validate(req.body);
+  if (error) {
+    return res.status(400).json({ error: error.details[0].message });
   }
 
-  userModel.getUserByEmail(email, (err, results) => {
-    if (err) return res.status(500).json({ message: 'Server error' });
-    if (results.length > 0) return res.status(400).json({ message: 'Email already exists' });
+  signUpUserModel({ username, email, password, first_name, last_name, image }, (err, result) => {
+    if (err) {
+      console.error('Error signing up user:', err);
+      return res.status(500).json({ message: 'Failed to register user' });
+    }
 
-    const hashedPassword = bcrypt.hashSync(password, 10);
-    const newUser = { username, password: hashedPassword, email, first_name, last_name, role };
+    req.session.username = username;
+    req.session.userid = result.insertId;
+    req.session.role = 'customer';
 
-    userModel.createUser(newUser, (err, results) => {
-      if (err) return res.status(500).json({ message: 'Server error' });
-      return res.status(201).json({ message: 'User registered successfully' });
-    });
+    return res.status(201).json({ id: result.insertId, username, email });
   });
 };
 
-const login = (req, res) => {
-  const { email, password } = req.body;
+const signInUser = (req, res) => {
+  const { username, password } = req.body;
 
-  if (!email || !password) {
-    return res.status(400).json({ message: 'Please provide email and password' });
+  const { error } = require('../utils/AuthValidation').signInValidation.validate(req.body); // Use .validate() directly
+  if (error) {
+    return res.status(400).json({ error: error.details[0].message });
   }
 
-  userModel.getUserByEmail(email, (err, results) => {
-    if (err) return res.status(500).json({ message: 'Server error' });
-    if (results.length === 0) return res.status(400).json({ message: 'Invalid email or password' });
+  signInUserModel(username, password, (error, results) => {
+    if (error) {
+      console.error('Error signing in user:', error);
+      return res.status(500).json({ Login: false, error: 'Internal server error' });
+    }
 
-    const user = results[0];
-    const isMatch = bcrypt.compareSync(password, user.password);
+    if (results.length > 0) {
+      const user = results[0];
+      req.session.username = user.username;
+      req.session.userid = user.user_id;
+      req.session.role = user.role;
+      req.session.image = user.image_url;
 
-    if (!isMatch) return res.status(400).json({ message: 'Invalid email or password' });
+      console.log('Session after signInUser:', req.session);
 
-    const token = jwt.sign({ user_id: user.user_id, role: user.role }, process.env.JWT_SECRET, {
-      expiresIn: '1h'
-    });
-
-    return res.status(200).json({ token });
+      return res.json({ Login: true });
+    } else {
+      return res.json({ Login: false });
+    }
   });
+};
+
+const Logout = (req, res) => {
+  req.session.destroy(err => {
+    if (err) {
+      console.error('Error destroying session:', err.stack);
+      return res.status(500).json({ message: 'Failed to logout' });
+    }
+    res.clearCookie('connect.sid');
+    res.status(200).json({ message: 'Logged out successfully' });
+  });
+};
+
+const getUsername = (req, res) => {
+  if (req.session.username) {
+    return res.json({ valid: true, username: req.session.username });
+  } else {
+    return res.json({ valid: false });
+  }
+};
+
+const getImage = (req, res) => {
+  if (req.session.image) {
+    return res.json({ valid: true, image: req.session.image });
+  } else {
+    return res.json({ valid: false });
+  }
 };
 
 module.exports = {
-  register,
-  login
+  signUpUser,
+  signInUser,
+  Logout,
+  getUsername,
+  getImage,
 };

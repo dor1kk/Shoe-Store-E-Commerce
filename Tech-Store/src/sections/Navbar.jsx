@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import logo from '../assets/byte.png';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
+import Sidebar from '../components/Sidebar';
+import { FaBars } from 'react-icons/fa';
 
 const Navbar = () => {
   const [name, setName] = useState('');
@@ -11,6 +13,12 @@ const Navbar = () => {
   const [activeLink, setActiveLink] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
 
   useEffect(() => {
     axios.get('http://localhost:5006/api/auth/username', { withCredentials: true })
@@ -24,7 +32,7 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    axios.get('http://localhost:5006/image', { withCredentials: true })
+    axios.get('http://localhost:5006/api/auth/image', { withCredentials: true })
       .then(res => {
         if (res.data.valid) {
           setImage(res.data.image);
@@ -118,16 +126,29 @@ const Navbar = () => {
           )}
         </ul>
 
-        <div>
-          <img
-            className="hidden max-lg:block"
-            src=''
-            width={25}
-            height={25}
-            alt="Hamburger Menu"
+       <div>
+          <FaBars
+            className="hidden max-lg:block cursor-pointer"
+            size={25}
+            onClick={toggleSidebar}
           />
         </div>
       </nav>
+
+      {sidebarOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-20" onClick={toggleSidebar}>
+          <Sidebar
+            auth={auth}
+            name={name}
+            image={image}
+            activeLink={activeLink}
+            handleNavClick={handleNavClick}
+            handleLogout={handleLogout}
+            toggleDropdown={toggleDropdown}
+            dropdownOpen={dropdownOpen}
+          />
+        </div>
+      )}
     </header>
   );
 };

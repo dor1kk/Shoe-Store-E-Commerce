@@ -3,7 +3,7 @@ import { products } from '../constans';
 
 const BestSellers = () => {
   return (
-    <div id='products' className='flex flex-col mt-16 xl:flex-row justify-center min-h-screen max-container mx-auto gap-10 p-4 xl:p-16'>
+    <div id='products' className='flex flex-col mt-16  justify-center min-h-screen max-container mx-auto gap-10 p-4 xl:p-16'>
       <div className='flex flex-col items-center xl:items-start'>
         <h1 className='text-3xl sm:text-4xl font-bold text-center xl:text-left'>Our <span className='text-coral-red'>Popular</span> Products</h1>
         <p className='w-full sm:w-3/5 xl:w-full text-gray-400 mt-4 text-center xl:text-left'>

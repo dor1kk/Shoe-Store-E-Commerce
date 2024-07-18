@@ -23,8 +23,8 @@ const ProductDetail = () => {
 
   const fetchProductById = async () => {
     try {
-      const response = await axios.get(`http://localhost:5006/api/auth/products/${productId}`);
-      const productData = response.data.results[0];
+      const response = await axios.get(`http://localhost:5006/api/products/${productId}`);
+      const productData = response.data.product;
       setProduct(productData);
       setPrice(productData.price);
 
@@ -81,7 +81,7 @@ const ProductDetail = () => {
         order_status: 'pending'
       };
 
-      const response = await axios.post('http://localhost:5006/api/auth/orderitems', orderData);
+      const response = await axios.post('http://localhost:5006/api/order', orderData);
       console.log('Order placed successfully:', response.data);
 
       message.success('Order placed successfully!');

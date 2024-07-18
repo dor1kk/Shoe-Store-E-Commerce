@@ -26,7 +26,7 @@ const Products = () => {
 
   const fetchCategories = async () => {
     try {
-      const response = await axios.get('http://localhost:5006/api/auth/categories');
+      const response = await axios.get('http://localhost:5006/api/categories');
       setCategories(response.data.categories);
     } catch (error) {
       console.error('Error fetching categories:', error);
@@ -35,8 +35,8 @@ const Products = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get('http://localhost:5006/api/auth/products');
-      setProducts(response.data.results);
+      const response = await axios.get('http://localhost:5006/api/products');
+      setProducts(response.data.products);
     } catch (error) {
       console.error('Error fetching products:', error);
     }

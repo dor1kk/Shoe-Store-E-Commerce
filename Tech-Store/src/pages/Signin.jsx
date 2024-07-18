@@ -39,7 +39,7 @@ const Signin = () => {
   };
 
   return (
-    <div className="min-h-screen max-lg:flex-col-reverse flex bg-white">
+    <div className="min-h-screen max-lg:flex-col flex bg-white">
       <div className="md:block md:w-1/2 bg-coral-red p-8 text-center">
         <img src='https://png.pngtree.com/png-vector/20231015/ourmid/pngtree-scan-delivery-process-png-image_10160781.png' alt="Welcome illustration" className="mx-auto w-2/3 mb-4" />
         <p className="text-white">Connect with every application.</p>
